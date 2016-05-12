@@ -12,9 +12,9 @@ OBJS += cpuid.o \
 $(TARGET): $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $@
 
-cpuid.o: cpuid.s include/hex_numbers.inc
+cpuid.o: cpuid.asm ../include/hex_numbers.inc
 	$(AS) $(ASFLAGS) $<
 
 
-highest_eax_input.o: highest_eax_input.s include/stringops.inc include/hex_numbers.inc
+highest_eax_input.o: highest_eax_input.asm ../include/stringops.inc ../include/hex_numbers.inc
 	$(AS) $(ASFLAGS) $<

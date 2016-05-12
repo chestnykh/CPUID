@@ -1,5 +1,5 @@
-%include 'include/hex_numbers.inc'
-%include 'include/stringops.inc'
+%include '../include/hex_numbers.inc'
+%include '../include/stringops.inc'
 
 extern get_highest_eax_input
 extern highest_eax_input
