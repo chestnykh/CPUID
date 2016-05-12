@@ -1,4 +1,3 @@
-
 %macro print_hex 2 ;param1 - pointer to number , param2 - pointer to char[] which i store digits of the number 
 					pushad
 					mov edi, %2
