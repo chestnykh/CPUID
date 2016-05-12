@@ -18,3 +18,9 @@ cpuid.o: cpuid.asm ../include/hex_numbers.inc
 
 highest_eax_input.o: highest_eax_input.asm ../include/stringops.inc ../include/hex_numbers.inc
 	$(AS) $(ASFLAGS) $<
+
+
+.PHONY: clean
+
+clean:
+	rm *.o cpuid
