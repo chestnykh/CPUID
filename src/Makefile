@@ -6,7 +6,8 @@ TARGET = cpuid
 
 
 OBJS += cpuid.o \
-		highest_eax_input.o
+		max_eax_basic.o \
+		max_eax_extended.o
 
 
 $(TARGET): $(OBJS)
@@ -16,7 +17,10 @@ cpuid.o: cpuid.asm ../include/hex_numbers.inc
 	$(AS) $(ASFLAGS) $<
 
 
-highest_eax_input.o: highest_eax_input.asm ../include/stringops.inc ../include/hex_numbers.inc
+max_eax_basic.o: max_eax_basic.asm
+	$(AS) $(ASFLAGS) $<
+
+max_eax_extended.o: max_eax_extended.asm
 	$(AS) $(ASFLAGS) $<
 
 
