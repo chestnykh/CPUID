@@ -1,10 +1,11 @@
 %macro print_hex 2 ;param1 - pointer to number , param2 - pointer to char[] which i store digits of the number 
 					pushad
+					pushfd
 					mov edi, %2
-			%rep 8	
+				%rep 8
 					mov [edi], byte 0x30
 					inc edi
-			%endrep
+				%endrep
 					mov ebx, 0x10		
 					xor ecx, ecx
 					mov eax, [%1]		
@@ -30,11 +31,14 @@
 					jnz %%lpdiv
 					do_print_hex %2
 				
-	%%__end:
-				popad
+	%%__end:			
+						popfd
+						popad
 %endmacro
 
 %macro do_print_hex 1
+				pushad
+				pushfd
 				print_heximal_entry
 				mov ecx, 7
 	%%again:	push ecx
@@ -42,44 +46,53 @@
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [ecx + %1]
+				pushad
+				pushfd
 				int 0x80
+				popfd
+				popad
 				pop ecx
 				loop %%again
 				mov eax, 4
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [%1]
+				pushad
+				pushfd
 				int 0x80
-%endmacro
-
-
-%macro print_heximal_entry 0
-			pushad
-			xor edi, edi
-			xor eax, eax
-			mov al, 0x30
-			mov ah, 0x78
-			push ax
-			mov edi, esp
-			mov eax, 4
-			mov ebx, 1
-			mov edx, 2
-			mov ecx, edi
-			int 0x80
-			popad
+				popfd
+				popad
+				popfd
+				popad
 %endmacro
 
 %macro putchar 1
 		pushad
-		xor eax, eax
+		pushfd
 		mov al, %1
-		mov ah, byte 0
-		push ax
+		sub esp, 2
 		mov edi, esp
+		mov [edi], al
 		mov eax, 4
 		mov ebx, 1
-		mov edx, 1
 		mov ecx, edi
+		mov edx, 1
+		pushad
+		pushfd
 		int 0x80
+		popfd
+		popad
+		add esp, 2
+		popfd
 		popad
 %endmacro
+
+%macro print_heximal_entry 0
+			pushad
+			pushfd
+			putchar 0x30
+			putchar 0x78
+			popfd
+			popad
+%endmacro
+

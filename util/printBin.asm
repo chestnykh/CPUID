@@ -15,17 +15,17 @@ section .text
 
 	one:		mov [string+ecx], byte 49
 				shr eax, 1
-				jecxz end
+				jecxz _end
 				loop nextBit
 				
 
 	zero:		mov [string+ecx], byte 48
 				shr eax, 1
-				jecxz end
+				jecxz _end
 				loop nextBit
 				
 
-	end:		xor eax, eax
+	_end:		xor eax, eax
 				call write
 				mov eax, 1
 				int 0x80
