@@ -1,7 +1,12 @@
+%include '../include/stringops.inc'
+%include '../include/hex_numbers.inc'
+
 global get_max_eax_extended
 global max_eax_extended
 global maxeax_extended_str
 global maxeax_extended_strlen
+
+extern temp_string
 
 get_max_eax_extended:
 			push ebp
@@ -9,6 +14,8 @@ get_max_eax_extended:
 			mov eax, 0x80000000
 			cpuid
 			mov [max_eax_extended], eax	
+			print_string maxeax_extended_str, maxeax_extended_strlen
+			print_hex max_eax_extended, temp_string
 			mov esp, ebp
 			pop ebp
 			ret

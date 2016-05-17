@@ -1,17 +1,21 @@
-;%include 'include/stringops.inc'
-;%include 'include/hex_numbers.inc'
+%include '../include/stringops.inc'
+%include '../include/hex_numbers.inc'
 
 global get_max_eax_basic
 global max_eax_basic
 global maxeax_basic_str
 global maxeax_basic_strlen
 
+extern temp_string
+
 get_max_eax_basic:
 			push ebp
 			mov ebp, esp
 			xor eax, eax
 			cpuid
-			mov [max_eax_basic], eax	
+			mov [max_eax_basic], eax
+			print_string maxeax_basic_str, maxeax_basic_strlen
+			print_hex max_eax_basic, temp_string ;SIGSEGV!
 			mov esp, ebp
 			pop ebp
 			ret
