@@ -46,22 +46,14 @@
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [ecx + %1]
-				pushad
-				pushfd
 				int 0x80
-				popfd
-				popad
 				pop ecx
 				loop %%again
 				mov eax, 4
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [%1]
-				pushad
-				pushfd
 				int 0x80
-				popfd
-				popad
 				popfd
 				popad
 %endmacro
