@@ -77,11 +77,7 @@
 		mov ebx, 1
 		mov ecx, edi
 		mov edx, 1
-		pushad
-		pushfd
 		int 0x80
-		popfd
-		popad
 		add esp, 2
 		popfd
 		popad
