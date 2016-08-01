@@ -76,11 +76,7 @@
 %endmacro
 
 %macro print_heximal_entry 0
-			pushad
-			pushfd
 			putchar 0x30
 			putchar 0x78
-			popfd
-			popad
 %endmacro
 
