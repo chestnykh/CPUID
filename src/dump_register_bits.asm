@@ -42,6 +42,6 @@ dump_register_bits: ; [ebp+16] - register value , [ebp+12] - from , [ebp+8] - to
 				pop ebx
 				pop ecx
 				pop eax
-	_fin:			mov esp, ebp
+	_fin		mov esp, ebp
 				pop ebp
 				ret

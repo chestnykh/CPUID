@@ -46,22 +46,14 @@
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [ecx + %1]
-				pushad
-				pushfd
 				int 0x80
-				popfd
-				popad
 				pop ecx
 				loop %%again
 				mov eax, 4
 				mov ebx, 1
 				mov edx, 1
 				lea ecx, [%1]
-				pushad
-				pushfd
 				int 0x80
-				popfd
-				popad
 				popfd
 				popad
 %endmacro
@@ -77,22 +69,14 @@
 		mov ebx, 1
 		mov ecx, edi
 		mov edx, 1
-		pushad
-		pushfd
 		int 0x80
-		popfd
-		popad
 		add esp, 2
 		popfd
 		popad
 %endmacro
 
 %macro print_heximal_entry 0
-			pushad
-			pushfd
 			putchar 0x30
 			putchar 0x78
-			popfd
-			popad
 %endmacro
 
