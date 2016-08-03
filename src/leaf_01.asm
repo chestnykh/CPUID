@@ -2,9 +2,9 @@
 %include '../include/stringops.inc'
 
 extern dump_register_bits
-global leaf_01_info
+global leaf_01_ecx_info
 
-leaf_01_info:
+leaf_01_ecx_info:
 				push ebp
 				mov ebp, esp
 				
@@ -239,6 +239,142 @@ xtpr_0:			putchar 0x30
 xtpr_1:			putchar 0x31
 xtpr_next:		putchar 0xA
 
+				test ecx, 1000000000000000b
+				print_string pdcm, pdcm_len
+				jz pdcm_0
+				jmp pdcm_1
+pdcm_0:			putchar 0x30
+				jmp pdcm_next
+pdcm_1:			putchar 0x31
+pdcm_next:		putchar 0xA
+
+				test ecx, 100000000000000000b
+				print_string pcid, pcid_len
+				jz pcid_0
+				jmp pcid_1
+pcid_0:			putchar 0x30
+				jmp pcid_next
+pcid_1:			putchar 0x31
+pcid_next:		putchar 0xA
+
+				test ecx, 1000000000000000000b
+				print_string dca, dca_len
+				jz dca_0
+				jmp dca_1
+dca_0:			putchar 0x30
+				jmp dca_next
+dca_1:			putchar 0x31
+dca_next:		putchar 0xA
+
+				test ecx, 10000000000000000000b
+				print_string sse4_1, sse4_1_len
+				jz sse4_1_0
+				jmp sse4_1_1
+sse4_1_0:		putchar 0x30
+				jmp sse4_1_next
+sse4_1_1:		putchar 0x31
+sse4_1_next:	putchar 0xA
+
+				test ecx, 100000000000000000000b
+				print_string sse4_2, sse4_2_len
+				jz sse4_2_0
+				jmp sse4_2_1
+sse4_2_0:		putchar 0x30
+				jmp sse4_2_next
+sse4_2_1:		putchar 0x31
+sse4_2_next:	putchar 0xA
+
+				test ecx, 1000000000000000000000b
+				print_string x2apic, x2apic_len
+				jz x2apic_0
+				jmp x2apic_1
+x2apic_0:		putchar 0x30
+				jmp x2apic_next
+x2apic_1:		putchar 0x31
+x2apic_next:	putchar 0xA
+
+				test ecx, 10000000000000000000000b
+				print_string _movbe, _movbe_len
+				jz movbe_0
+				jmp movbe_1
+movbe_0:		putchar 0x30
+				jmp movbe_next
+movbe_1:		putchar 0x31
+movbe_next:		putchar 0xA
+
+				test ecx, 100000000000000000000000b
+				print_string _popcnt, _popcnt_len
+				jz _popcnt_0
+				jmp _popcnt_1
+_popcnt_0:		putchar 0x30
+				jmp _popcnt_next
+_popcnt_1:		putchar 0x31
+_popcnt_next:	putchar 0xA
+
+				test ecx, 1000000000000000000000000b
+				print_string tscdeadline, tscdeadline_len
+				jz tscdeadline_0
+				jmp tscdeadline_1
+tscdeadline_0:	putchar 0x30
+				jmp tscdeadline_next
+tscdeadline_1:	putchar 0x31
+tscdeadline_next:	
+				putchar 0xA
+
+				test ecx, 10000000000000000000000000b
+				print_string aes, aes_len
+				jz aes_0
+				jmp aes_1
+aes_0:			putchar 0x30
+				jmp aes_next
+aes_1:			putchar 0x31
+aes_next:		putchar 0xA
+
+				test ecx, 100000000000000000000000000b
+				print_string _xsave, _xsave_len
+				jz _xsave_0
+				jmp _xsave_1
+_xsave_0:		putchar 0x30
+				jmp _xsave_next
+_xsave_1:		putchar 0x31
+_xsave_next:	putchar 0xA
+
+				test ecx, 1000000000000000000000000000b
+				print_string osxsave, osxsave_len
+				jz osxsave_0
+				jmp osxsave_1
+osxsave_0:		putchar 0x30
+				jmp osxsave_next
+osxsave_1:		putchar 0x31
+osxsave_next:	putchar 0xa
+
+				test ecx, 10000000000000000000000000000b
+				print_string avx, avx_len
+				jz avx_0
+				jmp avx_1
+avx_0:			putchar 0x30
+				jmp avx_next
+avx_1:			putchar 0x31
+avx_next:		putchar 0xa
+
+				test ecx, 100000000000000000000000000000b
+				print_string f16c, f16c_len
+				jz f16c_0
+				jmp f16c_1
+f16c_0:			putchar 0x30
+				jmp f16c_next
+f16c_1:			putchar 0x31
+f16c_next:		putchar 0xa
+
+				test ecx, 1000000000000000000000000000000b
+				print_string _rdrand, _rdrand_len
+				jz _rdrand_0
+				jmp _rdrand_1
+_rdrand_0:		putchar 0x30
+				jmp _rdrand_next
+_rdrand_1:		putchar 0x31
+_rdrand_next:	putchar 0xa
+
 				mov esp, ebp
 				pop ebp
 				ret
@@ -280,7 +416,7 @@ section .data
 	fflags_entry db 'Feature flags: 1 - feature supported , 0 - feature unsupported'
 	fflags_entry_len equ $ - fflags_entry
 
-	sse3 db 'SSE3 (Streaming SIMD Extension 3 instructions) extension: '
+	sse3 db 'Streaming SIMD Extensions 3: ' 
 	sse3_len equ $ - sse3
 
 	pclmuldq db 'PCLMULDQ instruction: '
@@ -321,3 +457,54 @@ section .data
 
 	xtpr db 'xTPR update control: '
 	xtpr_len equ $ - xtpr
+
+	pdcm db 'Perfmon and debug capability: '
+	pdcm_len equ $ - pdcm
+
+	pcid db 'Process context identifiers: '
+	pcid_len equ $ - pcid
+
+	dca db 'Direct cache access: '
+	dca_len equ $ - dca
+
+	sse4_1 db 'Streaming SIMD Extensions 4.1: ' 
+	sse4_1_len equ $ - sse4_1
+
+	sse4_2 db 'Streaming SIMD Extensions 4.2: ' 
+	sse4_2_len equ $ - sse4_2
+
+	x2apic db 'Extended xAPIC support: '
+	x2apic_len equ $ - x2apic
+
+	_movbe db 'MOVBE instruction: '
+	_movbe_len equ $ - _movbe
+
+	_popcnt db 'POPCNT instruction: '
+	_popcnt_len equ $ - _popcnt
+
+	tscdeadline db 'Time stamp counter deadline: '
+	tscdeadline_len equ $ - tscdeadline
+
+	aes db 'AES instruction extensions: '
+	aes_len equ $ - aes
+
+	_xsave db 'XSAVE/XSTOR states: '
+	_xsave_len equ $ - _xsave
+
+	osxsave db 'OS-enabled extended state management: '
+	osxsave_len equ $ - osxsave
+
+	avx db 'Advanced vector extensions: '
+	avx_len equ $ - avx
+
+	f16c db '16-bit floating-point conversion instructions: '
+	f16c_len equ $ - f16c
+
+	_rdrand db 'RDRAND instruction: '
+	_rdrand_len equ $ - _rdrand
+
+	
+
+
+
+

@@ -13,6 +13,8 @@ OBJS += cpuid.o \
 		leaf_01.o
 
 
+
+
 $(TARGET): $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $@
 
@@ -38,4 +40,4 @@ leaf_01.o: leaf_01.asm ../include/hex_numbers.inc ../include/stringops.inc
 .PHONY: clean
 
 clean:
-	rm *.o cpuid
+	@(rm *.o cpuid)
