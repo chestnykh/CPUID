@@ -1,5 +1,5 @@
 AS = nasm
-ASFLAGS = -ggdb3 -f elf
+ASFLAGS = -f elf32
 LD = ld
 LDFLAGS = -m elf_i386
 TARGET = cpuid

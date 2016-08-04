@@ -111,7 +111,6 @@ leaf_01_ecx_info:
 				putchar 0xA
 				print_string fflags_entry, fflags_entry_len
 				putchar 0xA	
-				;push ecx
 
 				test ecx, 1b
 				print_string sse3, sse3_len
@@ -375,6 +374,277 @@ _rdrand_0:		putchar 0x30
 _rdrand_1:		putchar 0x31
 _rdrand_next:	putchar 0xa
 
+
+				;************************** 
+				;		edx
+				;**************************
+		%rep 10
+				putchar 0x23
+		%endrep
+				putchar 0xA
+
+				test edx, 1b
+				print_string fpu, fpu_len
+				jz fpu_0
+				jmp fpu_1
+fpu_0:			putchar 0x30
+				jmp fpu_next
+fpu_1:			putchar 0x31
+fpu_next:		putchar 0xa
+
+				test edx, 10b
+				print_string vme, vme_len
+				jz vme_0
+				jmp vme_1
+vme_0:			putchar 0x30
+				jmp vme_next
+vme_1:			putchar 0x31
+vme_next:		putchar 0xa
+
+				test edx, 100b
+				print_string de, de_len
+				jz de_0
+				jmp de_1
+de_0:			putchar 0x30
+				jmp de_next
+de_1:			putchar 0x31
+de_next:		putchar 0xa
+
+				test edx, 1000b
+				print_string pse, pse_len
+				jz pse_0
+				jmp pse_1
+pse_0:			putchar 0x30
+				jmp pse_next
+pse_1:			putchar 0x31
+pse_next:		putchar 0xa
+
+				test edx, 10000b
+				print_string tsc, tsc_len
+				jz tsc_0
+				jmp tsc_1
+tsc_0:			putchar 0x30
+				jmp tsc_next
+tsc_1:			putchar 0x31
+tsc_next:		putchar 0xa
+
+				test edx, 100000b
+				print_string msr, msr_len
+				jz msr_0
+				jmp msr_1
+msr_0:			putchar 0x30
+				jmp msr_next
+msr_1:			putchar 0x31
+msr_next:		putchar 0xa
+
+				test edx, 1000000b
+				print_string pae, pae_len
+				jz pae_0
+				jmp pae_1
+pae_0:			putchar 0x30
+				jmp pae_next
+pae_1:			putchar 0x31
+pae_next:		putchar 0xa
+
+				test edx, 10000000b
+				print_string mce, mce_len
+				jz mce_0
+				jmp mce_1
+mce_0:			putchar 0x30
+				jmp mce_next
+mce_1:			putchar 0x31
+mce_next:		putchar 0xa
+
+				test edx, 100000000b
+				print_string cx8, cx8_len
+				jz cx8_0
+				jmp cx8_1
+cx8_0:			putchar 0x30
+				jmp cx8_next
+cx8_1:			putchar 0x31
+cx8_next:		putchar 0xa
+
+				test edx, 1000000000b
+				print_string _apic, _apic_len
+				jz _apic_0
+				jmp _apic_1
+_apic_0:		putchar 0x30
+				jmp _apic_next
+_apic_1:		putchar 0x31
+_apic_next:		putchar 0xa
+
+				test edx, 100000000000b
+				print_string sep, sep_len
+				jz sep_0
+				jmp sep_1
+sep_0:			putchar 0x30
+				jmp sep_next
+sep_1:			putchar 0x31
+sep_next:		putchar 0xa
+
+				test edx, 1000000000000b
+				print_string mtrr, mtrr_len
+				jz mtrr_0
+				jmp mtrr_1
+mtrr_0:			putchar 0x30
+				jmp mtrr_next
+mtrr_1:			putchar 0x31
+mtrr_next:		putchar 0xa
+
+				test edx, 10000000000000b
+				print_string pge, pge_len
+				jz pge_0
+				jmp pge_1
+pge_0:			putchar 0x30
+				jmp pge_next
+pge_1:			putchar 0x31
+pge_next:		putchar 0xa
+
+				test edx, 100000000000000b
+				print_string mca, mca_len
+				jz mca_0
+				jmp mca_1
+mca_0:			putchar 0x30
+				jmp mca_next
+mca_1:			putchar 0x31
+mca_next:		putchar 0xa
+
+				test edx, 1000000000000000b
+				print_string _cmov, _cmov_len
+				jz _cmov_0
+				jmp _cmov_1
+_cmov_0:		putchar 0x30
+				jmp _cmov_next
+_cmov_1:		putchar 0x31
+_cmov_next:		putchar 0xa
+
+				test edx, 10000000000000000b
+				print_string pat, pat_len
+				jz pat_0
+				jmp pat_1
+pat_0:			putchar 0x30
+				jmp pat_next
+pat_1:			putchar 0x31
+pat_next:		putchar 0xa
+
+				test edx, 100000000000000000b
+				print_string pse36, pse36_len
+				jz pse36_0
+				jmp pse36_1
+pse36_0:		putchar 0x30
+				jmp pse36_next
+pse36_1:		putchar 0x31
+pse36_next:		putchar 0xa
+
+				test edx, 1000000000000000000b
+				print_string psn, psn_len
+				jz psn_0
+				jmp psn_1
+psn_0:			putchar 0x30
+				jmp psn_next
+psn_1:			putchar 0x31
+psn_next:		putchar 0xa
+
+				test edx, 10000000000000000000b
+				print_string clfsh, clfsh_len
+				jz clfsh_0
+				jmp clfsh_1
+clfsh_0:		putchar 0x30
+				jmp clfsh_next
+clfsh_1:		putchar 0x31
+clfsh_next:		putchar 0xa
+
+				test edx, 1000000000000000000000b
+				print_string dst, dst_len
+				jz dst_0
+				jmp dst_1
+dst_0:			putchar 0x30
+				jmp dst_next
+dst_1:			putchar 0x31
+dst_next:		putchar 0xa
+
+				test edx, 10000000000000000000000b
+				print_string _acpi_, _acpi__len
+				jz _acpi__0
+				jmp _acpi__1
+_acpi__0:		putchar 0x30
+				jmp _acpi__next
+_acpi__1:		putchar 0x31
+_acpi__next:	putchar 0xa
+
+				test edx, 100000000000000000000000b
+				print_string mmx, mmx_len
+				jz mmx_0
+				jmp mmx_1
+mmx_0:			putchar 0x30
+				jmp mmx_next
+mmx_1:			putchar 0x31
+mmx_next:		putchar 0xa
+
+				test edx, 1000000000000000000000000b
+				print_string fxsr, fxsr_len
+				jz mmx_0
+				jmp fxsr_1
+fxsr_0:			putchar 0x30
+				jmp fxsr_next
+fxsr_1:			putchar 0x31
+fxsr_next:		putchar 0xa
+
+				test edx, 10000000000000000000000000b
+				print_string sse, sse_len
+				jz sse_0
+				jmp sse_1
+sse_0:			putchar 0x30
+				jmp sse_next
+sse_1:			putchar 0x31
+sse_next:		putchar 0xa
+
+				test edx, 100000000000000000000000000b
+				print_string sse2, sse2_len
+				jz sse2_0
+				jmp sse2_1
+sse2_0:			putchar 0x30
+				jmp sse2_next
+sse2_1:			putchar 0x31
+sse2_next:		putchar 0xa
+
+				test edx, 1000000000000000000000000000b
+				print_string _ss, _ss_len
+				jz _ss_0
+				jmp _ss_1
+_ss_0:			putchar 0x30
+				jmp _ss_next
+_ss_1:			putchar 0x31
+_ss_next:		putchar 0xa
+
+				test edx, 10000000000000000000000000000b
+				print_string htt, htt_len
+				jz htt_0
+				jmp htt_1
+htt_0:			putchar 0x30
+				jmp htt_next
+htt_1:			putchar 0x31
+htt_next:		putchar 0xa
+
+				test edx, 100000000000000000000000000000b
+				print_string tm, tm_len
+				jz tm_0
+				jmp tm_1
+tm_0:			putchar 0x30
+				jmp tm_next
+tm_1:			putchar 0x31
+tm_next:		putchar 0xa
+
+				test edx, 10000000000000000000000000000000b
+				print_string pbe, pbe_len
+				jz pbe_0
+				jmp pbe_1
+pbe_0:			putchar 0x30
+				jmp pbe_next
+pbe_1:			putchar 0x31
+pbe_next:		putchar 0xa
+
+
 				mov esp, ebp
 				pop ebp
 				ret
@@ -415,6 +685,8 @@ section .data
 
 	fflags_entry db 'Feature flags: 1 - feature supported , 0 - feature unsupported'
 	fflags_entry_len equ $ - fflags_entry
+
+	;ecx info	
 
 	sse3 db 'Streaming SIMD Extensions 3: ' 
 	sse3_len equ $ - sse3
@@ -502,6 +774,99 @@ section .data
 
 	_rdrand db 'RDRAND instruction: '
 	_rdrand_len equ $ - _rdrand
+
+
+	;edx info
+
+	fpu db 'Intel387 floating-point instruction set: '
+	fpu_len equ $ - fpu
+
+	vme db 'Virtual-8086 mode: '
+	vme_len equ $ - vme
+
+	de db 'Debugging extension: '
+	de_len equ $ - de
+
+	pse db 'Page size extension (4MB pages): '
+	pse_len equ $ - pse
+
+	tsc db 'Time-stamp counter: '
+	tsc_len equ $ - tsc
+
+	msr db 'Model specific registers: '
+	msr_len equ $ - msr
+
+	pae db 'Physical address extension: '
+	pae_len equ $ - pae
+
+	mce db 'Machine-Check exception: '
+	mce_len equ $ - mce
+
+	cx8 db 'CMPXCHG8 instruction: '
+	cx8_len equ $ - cx8
+
+	_apic db 'On-chip APIC hardware: '
+	_apic_len equ $ - _apic
+
+	sep db 'Fast system call: '
+	sep_len equ $ - sep
+
+	mtrr db 'Memory type range registers: '
+	mtrr_len equ $ - mtrr
+
+	pge db 'Page global: '
+	pge_len equ $ - pge
+
+	mca db 'Machine-Check architecture: '
+	mca_len equ $ - mca
+
+	_cmov db 'Conditional move instruction: '
+	_cmov_len equ $ - _cmov
+
+	pat db 'Page attribute table: '
+	pat_len equ $ - pat
+
+	pse36 db '36-bit page size extension: '
+	pse36_len equ $ - pse36
+
+	psn db 'Processor serial number: '
+	psn_len equ $ - psn
+
+	clfsh db 'CLFLUSH instruction: '
+	clfsh_len equ $ - clfsh
+
+	dst db 'Debug store: '
+	dst_len equ $ - dst
+
+	_acpi_ db 'Thermal monitor and software controlled clock facilities: '
+	_acpi__len equ $ - _acpi_
+
+	mmx db 'MMX technology: '
+	mmx_len equ $ - mmx
+
+	fxsr db 'FXSAVE and FXSTOR instructions:'
+	fxsr_len equ $ - fxsr
+
+	sse db 'Streaming SIMD Extensions: '
+	sse_len equ $ - sse
+
+	sse2 db 'Streaming SIMD Extensions 2: ' 
+	sse2_len equ $ - sse2
+
+	_ss db 'Self-Snoop: '
+	_ss_len equ $ - _ss
+
+	htt db 'Multi-threading: '
+	htt_len equ $ - htt
+
+	tm db 'Thermal monitor: '
+	tm_len equ $ - tm
+
+	pbe db 'Pending break enable: '
+	pbe_len equ $ - pbe
+
+
+
 
 	
 
