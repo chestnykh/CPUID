@@ -3,6 +3,8 @@
 global dump_register_bits
 
 
+section .text
+
 dump_register_bits: ; [ebp+16] - register value , [ebp+12] - from , [ebp+8] - to 
 				push ebp
 				mov ebp, esp

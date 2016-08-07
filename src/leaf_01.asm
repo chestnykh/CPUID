@@ -4,6 +4,8 @@
 extern dump_register_bits
 global leaf_01_ecx_info
 
+section .text
+
 leaf_01_ecx_info:
 				push ebp
 				mov ebp, esp

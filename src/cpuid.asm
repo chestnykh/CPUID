@@ -12,6 +12,7 @@ extern get_vendor_id
 extern vendor_id
 extern dump_register_bits
 extern leaf_01_ecx_info
+extern cache_and_tlb_info
 
 global temp_string
 
@@ -33,5 +34,9 @@ section .text
 				putchar 0xA
 
 				call leaf_01_ecx_info
+
+				call cache_and_tlb_info
+				putchar 0xA
+
 				mov eax, 1
 				int 0x80

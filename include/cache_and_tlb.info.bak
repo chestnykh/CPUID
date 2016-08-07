@@ -1,0 +1,95 @@
+_01h db 'TLB Instruction TLB: 4-KB Pages, 4-way set associative, 32 entries', 0xA
+_01h_len equ $ - _01h
+_03h db 'TLB Data TLB: 4-KB Pages, 4-way set associative, 64 entries', 0xA
+_03h_len equ $ - _03h
+_05h db 'TLB Data TLB: 4-MB Pages, 4-way set associative, 32 entries', 0xA
+_05h_len equ $ - _05h
+_08h db 'Cache 1st-level instruction cache: 16-KB, 4-way set associative, 32-byte line size', 0xA
+_08h_len equ $ - _08h
+_0Ah db 'Cache 1st-level data cache: 8-KB, 2-way set associative, 32-byte line size', 0xA
+_0Ah_len equ $ - _0Ah
+_0Ch db 'Cache 1st-level data cache: 16-KB, 4-way set associative, 32-byte line size', 0xA
+_0Ch_len equ $ - _0Ch
+_0Eh db 'Cache 1st-level Data Cache: 24-KB, 6-way set associative, 64-byte line size', 0xA
+_0Eh_len equ $ - _0Eh
+_22h db 'Cache 3rd-level cache: 512-KB, 4-way set associative, sectored cache, 64-byte line size', 0xA
+_22h_len equ $ - _22h
+_25h db 'Cache 3rd-level cache: 2-MB, 8-way set associative, sectored cache, 64-byte line size', 0xA
+_25h_len equ $ - _25h
+_2Ch db 'Cache 1st-level data cache: 32-KB, 8-way set associative, 64-byte line size', 0xA
+_2Ch_len equ $ - _2Ch
+_40h db 'Cache No 2nd-level cache or, if processor contains a valid 2nd-level cache, no 3rd-level cache', 0xA
+_40h_len equ $ - _40h
+_42h db 'Cache 2nd-level cache: 256-KB, 4-way set associative, 32-byte line size', 0xA
+_42h_len equ $ - _42h
+_44h db 'Cache 2nd-level cache: 1-MB, 4-way set associative, 32-byte line size', 0xA
+_44h_len equ $ - _44h
+_46h db 'Cache 3rd-level cache: 4-MB, 4-way set associative, 64-byte line size', 0xA
+_46h_len equ $ - _46h
+_48h db 'Cache 2nd-level cache: 3-MB, 12-way set associative, 64-byte line size, unified on-die', 0xA
+_48h_len equ $ - _48h
+_4Ah db 'Cache 3rd-level cache: 6-MB, 12-way set associative, 64-byte line size', 0xA
+_4Ah_len equ $ - _4Ah
+_4Ch db 'Cache 3rd-level cache: 12-MB, 12-way set associative, 64-byte line size', 0xA
+_4Ch_len equ $ - _4Ch
+_4Eh db 'Cache 2nd-level cache: 6-MB, 24-way set associative, 64-byte line size', 0xA
+_4Eh_len equ $ - _4Eh
+_50h db 'TLB Instruction TLB: 4-KB, 2-MB or 4-MB pages, fully associative, 64 entries', 0xA
+_50h_len equ $ - _50h
+_52h db 'TLB Instruction TLB: 4-KB, 2-MB or 4-MB pages, fully associative, 256 entries', 0xA
+_52h_len equ $ - _52h
+_56h db 'TLB L1 Data TLB: 4-MB pages, 4-way set associative, 16 entries', 0xA
+_56h_len equ $ - _56h
+_59h db 'TLB Data TLB0: 4-KB pages, fully associative, 16 entries', 0xA
+_59h_len equ $ - _59h
+_5Bh db 'TLB Data TLB: 4-KB or 4-MB pages, fully associative, 64 entries', 0xA
+_5Bh_len equ $ - _5Bh
+_5Dh db 'TLB Data TLB: 4-KB or 4-MB pages, fully associative, 256 entries', 0xA
+_5Dh_len equ $ - _5Dh
+_66h db 'Cache 1st-level data cache: 8-KB, 4-way set associative, sectored cache, 64-byte line size', 0xA
+_66h_len equ $ - _66h
+_68h db 'Cache 1st-level data cache: 32-KB, 4 way set associative, sectored cache, 64-byte line size', 0xA
+_68h_len equ $ - _68h
+_71h db 'Cache Trace cache: 16K-uops, 8-way set associative', 0xA
+_71h_len equ $ - _71h
+_76h db 'TLB Instruction TLB: 2M/4M pages, fully associative, 8 entries', 0xA
+_76h_len equ $ - _76h
+_79h db 'Cache 2nd-level cache: 128-KB, 8-way set associative, sectored cache, 64-byte line size', 0xA
+_79h_len equ $ - _79h
+_7Bh db 'Cache 2nd-level cache: 512-KB, 8-way set associative, sectored cache, 64-byte line size', 0xA
+_7Bh_len equ $ - _7Bh
+_7Dh db 'Cache 2nd-level cache: 2-MB, 8-way set associative, 64-byte line size', 0xA
+_7Dh_len equ $ - _7Dh
+_80h db 'Cache 2nd-level cache: 512-KB, 8-way set associative, 64-byte line size', 0xA
+_80h_len equ $ - _80h
+_83h db 'Cache 2nd-level cache: 512-KB, 8-way set associative, 32-byte line size', 0xA
+_83h_len equ $ - _83h
+_85h db 'Cache 2nd-level cache: 2-MB, 8-way set associative, 32-byte line size', 0xA
+_85h_len equ $ - _85h
+_87h db 'Cache 2nd-level cache: 1-MB, 8-way set associative, 64-byte line size', 0xA
+_87h_len equ $ - _87h
+_B1h db 'TLB Instruction TLB: 2-MB pages, 4-way, 8 entries or 4M pages, 4-way, 4 entries', 0xA
+_B1h_len equ $ - _B1h
+_B3h db 'TLB Data TLB: 4-KB Pages, 4-way set associative, 128 entries', 0xA
+_B3h_len equ $ - _B3h
+_BAh db 'TLB Data TLB: 4-KB Pages, 4-way set associative, 64 entries', 0xA
+_BAh_len equ $ - _BAh
+_CAh db 'STLB Shared 2nd-level TLB: 4 KB pages, 4-way set associative, 512 entries', 0xA
+_CAh_len equ $ - _CAh
+_D1h db 'Cache 3rd-level cache: 1-MB, 4-way set associative, 64-byte line size', 0xA
+_D1h_len equ $ - _D1h
+_D6h db 'Cache 3rd-level cache: 1-MB, 8-way set associative, 64-byte line size', 0xA
+_D6h_len equ $ - _D6h
+_D8h db 'Cache 3rd-level cache: 4-MB, 8-way set associative, 64-byte line size', 0xA
+_D8h_len equ $ - _D8h
+_DDh db 'Cache 3rd-level cache: 3-MB, 12-way set associative, 64-byte line size', 0xA
+_DDh_len equ $ - _DDh
+_E2h db 'Cache 3rd-level cache: 2-MB, 16-way set associative, 64-byte line size', 0xA
+_E2h_len equ $ - _E2h
+_E4h db 'Cache 3rd-level cache: 8-MB, 16-way set associative, 64-byte line size', 0xA
+_E4h_len equ $ - _E4h
+_EBh db 'Cache 3rd-level cache: 18-MB, 24-way set associative, 64-byte line size', 0xA
+_EBh_len equ $ - _EBh
+_F0h db 'Prefetch 64-byte Prefetching', 0xA
+_F0h_len equ $ - _F0h
+_FFh db 'General CPUID Leaf 2 does not report cache descriptor information; use CPUID Leaf 4 to query cache parameters', 0xA

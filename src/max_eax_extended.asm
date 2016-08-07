@@ -8,6 +8,8 @@ global maxeax_extended_strlen
 
 extern temp_string
 
+section .text
+
 get_max_eax_extended:
 			push ebp
 			mov ebp, esp

@@ -8,6 +8,8 @@ global maxeax_basic_strlen
 
 extern temp_string
 
+section .text
+
 get_max_eax_basic:
 			push ebp
 			mov ebp, esp
@@ -15,7 +17,7 @@ get_max_eax_basic:
 			cpuid
 			mov [max_eax_basic], eax
 			print_string maxeax_basic_str, maxeax_basic_strlen
-			print_hex max_eax_basic, temp_string ;SIGSEGV!
+			print_hex max_eax_basic, temp_string
 			mov esp, ebp
 			pop ebp
 			ret

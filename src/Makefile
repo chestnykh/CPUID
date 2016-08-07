@@ -10,7 +10,8 @@ OBJS += cpuid.o \
 		max_eax_extended.o \
 		vendor_id.o \
 		dump_register_bits.o \
-		leaf_01.o
+		leaf_01.o \
+		cache.o
 
 
 
@@ -35,6 +36,9 @@ dump_register_bits.o: dump_register_bits.asm ../include/hex_numbers.inc
 	$(AS) $(ASFLAGS) $<
 
 leaf_01.o: leaf_01.asm ../include/hex_numbers.inc ../include/stringops.inc
+	$(AS) $(ASFLAGS) $<
+
+cache.o: cache.asm ../include/hex_numbers.inc ../include/stringops.inc ../include/cache_and_tlb.info cache_testreg.inc
 	$(AS) $(ASFLAGS) $<
 
 .PHONY: clean

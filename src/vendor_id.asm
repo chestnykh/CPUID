@@ -3,9 +3,17 @@
 global get_vendor_id
 global vendor_id
 
+
+
+
+section .text
+
 ;include this function implementation in get_max_eax_basic
+
+
+
 get_vendor_id:
-	push ebx
+	push ebp
 	mov ebp, esp
 	xor eax, eax
 	cpuid 
@@ -15,7 +23,7 @@ get_vendor_id:
 	print_string vendorstr, vendorstr_len
 	print_string vendor_id, 12	
 	mov esp, ebp
-	pop ebx
+	pop ebp
 	ret
 
 section .bss
